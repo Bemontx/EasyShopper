@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EasyShopper.Infrastructure.Persistence;
 
-public class EasyShopperDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
+public class EasyShopperDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
 {
     public EasyShopperDbContext(DbContextOptions<EasyShopperDbContext> options)
         : base(options)
