@@ -1,0 +1,37 @@
+﻿using MediatR;
+using EasyShopper.Application.Common.Interfaces;
+using EasyShopper.Application.Users.Commands;
+using EasyShopper.Domain.Entities;
+
+namespace EasyShopper.Application.Users.Handlers;
+
+public class RegisterUserCommandHandler
+    : IRequestHandler<RegisterUserCommand, Guid>
+{
+    private readonly IUserRepository _userRepository;
+
+    public RegisterUserCommandHandler(IUserRepository userRepository)
+    {
+        _userRepository = userRepository;
+    }
+
+    public async Task<Guid> Handle(
+        RegisterUserCommand request,
+        CancellationToken cancellationToken)
+    {
+        var existingUser = await _userRepository.GetByEmailAsync(request.Email);
+
+        if (existingUser != null)
+            throw new Exception("User already exists");
+
+        var user = new User(
+            request.Name,
+            request.Email,
+            request.Password 
+        );
+
+        await _userRepository.AddAsync(user);
+
+        return user.Id;
+    }
+}
