@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "AAMsvuJ1E1Q=",
+  "dgSpecHash": "bEiQAHg8j9w=",
   "success": true,
   "projectFilePath": "C:\\Users\\Jeisson Cardoso\\source\\repos\\EasyShopper\\EasyShopper.Application\\EasyShopper.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jeisson Cardoso\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\Jeisson Cardoso\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
     "C:\\Users\\Jeisson Cardoso\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
     "C:\\Users\\Jeisson Cardoso\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Jeisson Cardoso\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
