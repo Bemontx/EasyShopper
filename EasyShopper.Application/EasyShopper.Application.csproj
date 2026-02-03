@@ -14,4 +14,15 @@
     <ProjectReference Include="..\EasyShopper.Domain\EasyShopper.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\Interfaces\" />
+    <Folder Include="Models\Orders\Commands\" />
+    <Folder Include="Models\Orders\DTOs\" />
+    <Folder Include="Models\Products\DTOs\" />
+    <Folder Include="Models\Products\Queries\" />
+    <Folder Include="Models\Users\Commands\" />
+    <Folder Include="Models\Users\DTOs\" />
+    <Folder Include="Models\Users\Queries\" />
+  </ItemGroup>
+
 </Project>
