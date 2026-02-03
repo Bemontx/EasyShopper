@@ -16,3 +16,5 @@ C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Infrastructure\obj
 C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Infrastructure\obj\Debug\net9.0\refint\EasyShopper.Infrastructure.dll
 C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Infrastructure\obj\Debug\net9.0\EasyShopper.Infrastructure.pdb
 C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Infrastructure\obj\Debug\net9.0\ref\EasyShopper.Infrastructure.dll
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Infrastructure\bin\Debug\net9.0\EasyShopper.Infrastructure.runtimeconfig.json
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Infrastructure\obj\Debug\net9.0\EasyShopper.Infrastructure.genruntimeconfig.cache

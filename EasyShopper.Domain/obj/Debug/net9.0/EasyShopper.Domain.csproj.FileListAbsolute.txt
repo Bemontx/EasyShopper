@@ -10,3 +10,4 @@ C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Domain\obj\Debug\n
 C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Domain\obj\Debug\net9.0\refint\EasyShopper.Domain.dll
 C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Domain\obj\Debug\net9.0\EasyShopper.Domain.pdb
 C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Domain\obj\Debug\net9.0\ref\EasyShopper.Domain.dll
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Domain\obj\Debug\net9.0\EasyShopper.Domain.csproj.AssemblyReference.cache

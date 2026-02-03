@@ -24,11 +24,7 @@ public class RegisterUserCommandHandler
         if (existingUser != null)
             throw new Exception("User already exists");
 
-        var user = new User(
-            request.Name,
-            request.Email,
-            request.Password 
-        );
+        var user = new User(request.Name, request.Email);
 
         await _userRepository.AddAsync(user);
 
