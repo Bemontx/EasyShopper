@@ -1,23 +1,21 @@
-﻿namespace EasyShopper.Domain.Entities;
+﻿using Microsoft.AspNetCore.Identity;
 
-public class User
+namespace EasyShopper.Domain.Entities;
+
+public class User : IdentityUser<Guid>
 {
-    public Guid Id { get; set; }
     public string Name { get; set; } = default!;
-    public string Email { get; set; } = default!;
-    public string Password { get; set; } = default!;
     public DateTime CreatedAt { get; set; }
 
-
-    //constructores
     // EF pide un constructor vacio
-    private User() { } 
+    private User() { }
 
-    public User(string name, string email, string password)
+    public User(string name, string email)
     {
         Id = Guid.NewGuid();
         Name = name;
         Email = email;
-        Password = password;
+        UserName = email;
+        CreatedAt = DateTime.UtcNow;
     }
 }

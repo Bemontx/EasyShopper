@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EasyShopper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80e41d1f6d60786280f2df0a59a53eacec95632d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e4ee89c122af540061d938606d9262d15e20d06")]
 [assembly: System.Reflection.AssemblyProductAttribute("EasyShopper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EasyShopper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
