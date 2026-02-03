@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyShopper.Application\EasyShopper.Application.csproj" />
+    <ProjectReference Include="..\EasyShopper.Domain\EasyShopper.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

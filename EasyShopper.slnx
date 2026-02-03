@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="EasyShopper.Application/EasyShopper.Application.csproj" />
+  <Project Path="EasyShopper.Domain/EasyShopper.Domain.csproj" />
+  <Project Path="EasyShopper.Infrastructure/EasyShopper.Infrastructure.csproj" />
   <Project Path="EasyShopper/EasyShopper.csproj" />
 </Solution>

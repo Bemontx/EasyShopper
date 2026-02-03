@@ -1,0 +1,16 @@
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\bin\Debug\net9.0\EasyShopper.Application.deps.json
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\bin\Debug\net9.0\EasyShopper.Application.dll
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\bin\Debug\net9.0\EasyShopper.Application.pdb
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\bin\Debug\net9.0\EasyShopper.Domain.dll
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\bin\Debug\net9.0\EasyShopper.Domain.pdb
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\obj\Debug\net9.0\EasyShopper.Application.csproj.AssemblyReference.cache
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\obj\Debug\net9.0\EasyShopper.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\obj\Debug\net9.0\EasyShopper.Application.AssemblyInfoInputs.cache
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\obj\Debug\net9.0\EasyShopper.Application.AssemblyInfo.cs
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\obj\Debug\net9.0\EasyShopper.Application.csproj.CoreCompileInputs.cache
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\obj\Debug\net9.0\EasyShopper.Application.sourcelink.json
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\obj\Debug\net9.0\EasyShop.67678548.Up2Date
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\obj\Debug\net9.0\EasyShopper.Application.dll
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\obj\Debug\net9.0\refint\EasyShopper.Application.dll
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\obj\Debug\net9.0\EasyShopper.Application.pdb
+C:\Users\Jeisson Cardoso\source\repos\EasyShopper\EasyShopper.Application\obj\Debug\net9.0\ref\EasyShopper.Application.dll

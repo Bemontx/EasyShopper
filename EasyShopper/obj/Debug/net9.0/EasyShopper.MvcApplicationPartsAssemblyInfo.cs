@@ -11,13 +11,7 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("EasyShopper")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e68c9b341b2a56859bf3441032c9b72a98f88dc1")]
-[assembly: System.Reflection.AssemblyProductAttribute("EasyShopper")]
-[assembly: System.Reflection.AssemblyTitleAttribute("EasyShopper")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Microsoft.AspNetCore.OpenApi")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 
