@@ -1,0 +1,6 @@
+@EasyShopper_HostAddress = http://localhost:5263
+
+GET {{EasyShopper_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

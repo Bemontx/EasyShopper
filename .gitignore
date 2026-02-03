@@ -1,0 +1,36 @@
+## --- [ Visual Studio ] ---
+## Archivos de usuario y caché
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+## --- [ Compilación (Build) ] ---
+## Carpetas de salida (Binarios)
+[Bb]in/
+[Obj]/
+
+## --- [ Paquetes NuGet ] ---
+## No subimos los paquetes, se restauran al compilar
+packages/
+*.nuget.props
+*.nuget.targets
+
+## --- [ Herramientas de .NET Core / .NET 5+ ] ---
+## Archivos de configuración de lanzamiento (solo si contienen secretos)
+# launchSettings.json
+.connectedService/
+Generated Files/
+
+## --- [ Testing ] ---
+## Resultados de pruebas unitarias y cobertura de código
+TestResults/
+*.sequenced.csv
+*.coverage
+
+## --- [ Sistemas Operativos ] ---
+## Archivos basura de Windows y Mac
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
