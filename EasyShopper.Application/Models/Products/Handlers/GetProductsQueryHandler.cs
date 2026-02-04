@@ -25,7 +25,7 @@ public class GetProductsQueryHandler : IRequestHandler<GetProductsQuery, Result<
             return Result<IEnumerable<ProductDto>>
                 .Failure("No hay productos disponibles");
 
-        var dtos = products.Select(p => new ProductDto
+        var dtoList = products.Select(p => new ProductDto
         {
             Id = p.Id,
             Name = p.Name,
@@ -33,6 +33,6 @@ public class GetProductsQueryHandler : IRequestHandler<GetProductsQuery, Result<
             ImageUrl = p.ImageUrl
         });
 
-        return Result<IEnumerable<ProductDto>>.Success(dtos);
+        return Result<IEnumerable<ProductDto>>.Success(dtoList);
     }
 }

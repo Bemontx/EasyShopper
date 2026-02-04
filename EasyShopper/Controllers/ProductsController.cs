@@ -1,6 +1,7 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using EasyShopper.Application.Products.Commands;
 using EasyShopper.Application.Products.Queries;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShopper.Controllers;
 
@@ -25,4 +26,16 @@ public class ProductsController : ControllerBase
 
         return Ok(result.Value);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(CreateProductCommand command)
+    {
+        var result = await _mediator.Send(command);
+
+        if (!result.IsSuccess)
+            return BadRequest(result.Error);
+
+        return Ok(result.Value);
+    }
+
 }
