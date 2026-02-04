@@ -2,29 +2,26 @@
 using EasyShopper.Application.Common.Interfaces;
 using EasyShopper.Application.Common.Result;
 using EasyShopper.Application.Orders.DTOs;
-using EasyShopper.Domain.Entities;
 
-namespace EasyShopper.Application.Orders.Commands.CreateOrder;
+namespace EasyShopper.Application.Orders.Queries.GetOrderById;
 
-public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Result<OrderDto>>
+public class GetOrderByIdQueryHandler : IRequestHandler<GetOrderByIdQuery, Result<OrderDto>>
 {
     private readonly IOrderRepository _orderRepository;
 
-    public CreateOrderCommandHandler(IOrderRepository orderRepository)
+    public GetOrderByIdQueryHandler(IOrderRepository orderRepository)
     {
         _orderRepository = orderRepository;
     }
 
     public async Task<Result<OrderDto>> Handle(
-        CreateOrderCommand request,
+        GetOrderByIdQuery request,
         CancellationToken cancellationToken)
     {
-        var order = new Order(
-            request.UserId,
-            request.TotalAmount
-        );
+        var order = await _orderRepository.GetByIdAsync(request.Id);
 
-        await _orderRepository.AddAsync(order);
+        if (order is null)
+            return Result<OrderDto>.Failure("Orden no encontrada");
 
         var dto = new OrderDto
         {
