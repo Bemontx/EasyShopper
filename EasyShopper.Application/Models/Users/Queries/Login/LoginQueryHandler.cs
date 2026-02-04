@@ -26,24 +26,27 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, Result<LoginDto>>
 
         if (user == null)
         {
-            return Result<LoginDto>.Failure("El usuario no existe o las credenciales son inválidas.");
+            return Result<LoginDto>.Failure("Credenciales inválidas.");
         }
 
-        var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash!, request.Password);
+        if (string.IsNullOrEmpty(user.PasswordHash))
+        {
+            return Result<LoginDto>.Failure("El usuario no tiene una contraseña configurada correctamente.");
+        }
+
+        var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, request.Password);
 
         if (result == PasswordVerificationResult.Failed)
         {
             return Result<LoginDto>.Failure("Contraseña incorrecta.");
         }
 
-        var loginDto = new LoginDto
+        return Result<LoginDto>.Success(new LoginDto
         {
             Id = user.Id,
             Email = user.Email!,
-            FullName = user.UserName ?? string.Empty,
-            Token = ""
-        };
-
-        return Result<LoginDto>.Success(loginDto);
+            FullName = user.Name,
+            Token = "generar-token-aqui"
+        });
     }
 }
