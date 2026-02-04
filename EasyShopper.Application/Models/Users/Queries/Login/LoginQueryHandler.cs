@@ -1,7 +1,7 @@
-﻿using EasyShopper.Application.Common.Interfaces;
+﻿using EasyShopper.Domain.Entities;
+using EasyShopper.Application.Common.Interfaces;
 using EasyShopper.Application.Common.Result;
 using EasyShopper.Application.Models.Users.DTOs;
-using EasyShopper.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
@@ -11,6 +11,14 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, Result<LoginDto>>
 {
     private readonly IUserRepository _userRepository;
     private readonly IPasswordHasher<EasyShopper.Domain.Entities.User> _passwordHasher;
+
+    public LoginQueryHandler(
+        IUserRepository userRepository,
+        IPasswordHasher<EasyShopper.Domain.Entities.User> passwordHasher)
+    {
+        _userRepository = userRepository;
+        _passwordHasher = passwordHasher;
+    }
 
     public async Task<Result<LoginDto>> Handle(LoginQuery request, CancellationToken cancellationToken)
     {
