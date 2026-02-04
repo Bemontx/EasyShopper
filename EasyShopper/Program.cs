@@ -96,6 +96,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowIonicApp");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
