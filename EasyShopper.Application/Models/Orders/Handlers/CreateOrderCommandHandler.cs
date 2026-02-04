@@ -19,21 +19,28 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Res
         CreateOrderCommand request,
         CancellationToken cancellationToken)
     {
-        var order = new Order(
-            request.UserId,
-            request.TotalAmount
-        );
-
-        await _orderRepository.AddAsync(order);
-
-        var dto = new OrderDto
+        try
         {
-            Id = order.Id,
-            UserId = order.UserId,
-            TotalAmount = order.TotalAmount,
-            CreatedAt = order.CreatedAt
-        };
+            var order = new Order(
+                request.UserId,
+                request.TotalAmount
+            );
 
-        return Result<OrderDto>.Success(dto);
+            await _orderRepository.AddAsync(order);
+
+            var dto = new OrderDto
+            {
+                Id = order.Id,
+                UserId = order.UserId,
+                TotalAmount = order.TotalAmount,
+                CreatedAt = order.CreatedAt
+            };
+
+            return Result<OrderDto>.Success(dto);
+        }
+        catch (Exception ex)
+        {
+            return Result<OrderDto>.Failure($"Error al procesar la orden: {ex.Message}");
+        }
     }
 }
