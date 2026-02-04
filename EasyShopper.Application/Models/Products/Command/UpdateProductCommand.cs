@@ -4,7 +4,7 @@ using MediatR;
 
 namespace EasyShopper.Application.Products.Commands;
 
-public class UpdateProductCommand : Result<ProductDto>
+public class UpdateProductCommand : IRequest<Result<ProductDto>>
 {
     public Guid Id { get; set; }
     public string Name { get; set; } = default!;

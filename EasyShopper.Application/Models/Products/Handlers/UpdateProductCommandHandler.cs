@@ -1,41 +1,43 @@
-﻿using MediatR;
-using EasyShopper.Application.Products.Commands;
-using EasyShopper.Application.Common.Interfaces;
+﻿using EasyShopper.Application.Common.Interfaces;
 using EasyShopper.Application.Common.Result;
+using EasyShopper.Application.Products.Commands;
 using EasyShopper.Application.Products.DTOs;
+using MediatR;
+
+namespace EasyShopper.Application.Products.Handlers;
 
 public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand, Result<ProductDto>>
 {
-    private readonly IProductRepository _productRepository;
+    private readonly IProductRepository _repository;
 
-    public UpdateProductCommandHandler(IProductRepository productRepository)
+    public UpdateProductCommandHandler(IProductRepository repository)
     {
-        _productRepository = productRepository;
+        _repository = repository;
     }
 
     public async Task<Result<ProductDto>> Handle(
         UpdateProductCommand request,
         CancellationToken cancellationToken)
     {
-        var product = await _productRepository.GetByIdAsync(request.Id);
+        var product = await _repository.GetByIdAsync(request.Id);
 
         if (product == null)
             return Result<ProductDto>.Failure("Producto no encontrado");
 
-        product.Name = request.Name;
-        product.Price = request.Price;
-        product.ImageUrl = request.ImageUrl;
+        product.Update(
+            request.Name,
+            request.Price,
+            request.ImageUrl
+        );
 
-        await _productRepository.UpdateAsync(product);
+        await _repository.UpdateAsync(product);
 
-        var dto = new ProductDto
+        return Result<ProductDto>.Success(new ProductDto
         {
             Id = product.Id,
             Name = product.Name,
             Price = product.Price,
             ImageUrl = product.ImageUrl
-        };
-
-        return Result<ProductDto>.Success(dto);
+        });
     }
 }
