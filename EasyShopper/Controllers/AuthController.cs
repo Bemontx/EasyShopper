@@ -24,7 +24,7 @@ public class AuthController : ControllerBase
         var result = await _mediator.Send(command);
 
         if (!result.IsSuccess)
-            return BadRequest(result.Errors);
+            return BadRequest(result.Error); 
 
         return Ok(result.Value);
     }
@@ -36,7 +36,7 @@ public class AuthController : ControllerBase
         var result = await _mediator.Send(query);
 
         if (!result.IsSuccess)
-            return Unauthorized(result.Errors);
+            return Unauthorized(result.Error); 
 
         return Ok(result.Value);
     }
@@ -49,7 +49,7 @@ public class AuthController : ControllerBase
         var result = await _mediator.Send(query);
 
         if (!result.IsSuccess)
-            return NotFound(result.Errors);
+            return NotFound(result.Error); 
 
         return Ok(result.Value);
     }
