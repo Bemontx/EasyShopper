@@ -1,36 +1,50 @@
-## --- [ Visual Studio ] ---
-## Archivos de usuario y caché
-.vs/
-*.user
-*.userosscache
-*.sln.docstates
+## --- [ Núcleo de .NET / C# ] ---
+# Ignora bin y obj en cualquier nivel del proyecto
+**/[Bb]in/
+**/[Oo]bj/
+**/[Rr]elease/
+**/[Xx]64/
+**/[Xx]86/
 
-## --- [ Compilación (Build) ] ---
-## Carpetas de salida (Binarios)
-[Bb]in/
-[Obj]/
+# Archivos de depuración y caché
+*.pdb
+**/*.cache
+**/*.user
+**/*.userosscache
 
-## --- [ Paquetes NuGet ] ---
-## No subimos los paquetes, se restauran al compilar
-packages/
+# Caché de restauración de paquetes (NuGet)
+**/project.lock.json
+**/project.assets.json
 *.nuget.props
 *.nuget.targets
 
-## --- [ Herramientas de .NET Core / .NET 5+ ] ---
-## Archivos de configuración de lanzamiento (solo si contienen secretos)
-# launchSettings.json
+## --- [ Visual Studio & VS Code ] ---
+.vs/
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sln.docstates
+*.suo
+*.ide/
+.history/
+
+## --- [ Herramientas de EF & DB ] ---
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+
+## --- [ ASP.NET Core ] ---
 .connectedService/
-Generated Files/
+**/node_modules/
+**/wwwroot/lib/
+# appsettings.Development.json # Descomentar para no subir configs locales
 
-## --- [ Testing ] ---
-## Resultados de pruebas unitarias y cobertura de código
-TestResults/
-*.sequenced.csv
-*.coverage
-
-## --- [ Sistemas Operativos ] ---
-## Archivos basura de Windows y Mac
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+## --- [ Sistemas Operativos & Test ] ---
 .DS_Store
+Thumbs.db
+Desktop.ini
+**/TestResults/
+*.coverage
