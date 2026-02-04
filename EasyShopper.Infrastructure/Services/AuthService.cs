@@ -1,5 +1,7 @@
 ﻿using EasyShopper.Application.Common.Interfaces;
+using EasyShopper.Application.Common.Interfaces.Authentication;
 using EasyShopper.Application.Common.Result;
+using EasyShopper.Application.Models.Users.DTOs;
 using EasyShopper.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
@@ -9,45 +11,43 @@ public class AuthService : IAuthService
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
+    private readonly IJwtTokenGenerator _jwtTokenGenerator;
 
     public AuthService(
         UserManager<User> userManager,
-        SignInManager<User> signInManager)
+        SignInManager<User> signInManager,
+        IJwtTokenGenerator jwtTokenGenerator)
     {
         _userManager = userManager;
         _signInManager = signInManager;
+        _jwtTokenGenerator = jwtTokenGenerator;
     }
 
     public async Task<Result<Guid>> RegisterAsync(string name, string email, string password)
     {
-        var existingUser = await _userManager.FindByEmailAsync(email);
-        if (existingUser != null)
-            return Result<Guid>.Failure("El correo electrónico ya está registrado.");
-
         var user = new User(name, email);
-
         var result = await _userManager.CreateAsync(user, password);
 
         if (!result.Succeeded)
-        {
-            var errors = string.Join(", ", result.Errors.Select(e => e.Description));
-            return Result<Guid>.Failure(errors);
-        }
+            return Result<Guid>.Failure(string.Join(", ", result.Errors.Select(e => e.Description)));
 
         return Result<Guid>.Success(user.Id);
     }
 
-    public async Task<Result<Guid>> LoginAsync(string email, string password)
+    public async Task<Result<LoginDto>> LoginAsync(string email, string password)
     {
         var user = await _userManager.FindByEmailAsync(email);
-        if (user == null)
-            return Result<Guid>.Failure("Credenciales inválidas.");
+        if (user == null) return Result<LoginDto>.Failure("Credenciales inválidas.");
 
         var result = await _signInManager.CheckPasswordSignInAsync(user, password, false);
+        if (!result.Succeeded) return Result<LoginDto>.Failure("Credenciales inválidas.");
 
-        if (!result.Succeeded)
-            return Result<Guid>.Failure("Credenciales inválidas.");
-
-        return Result<Guid>.Success(user.Id);
+        return Result<LoginDto>.Success(new LoginDto
+        {
+            Id = user.Id,
+            Email = user.Email!,
+            FullName = user.Name,
+            Token = _jwtTokenGenerator.GenerateToken(user)
+        });
     }
 }
