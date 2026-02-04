@@ -17,5 +17,8 @@ public class User : IdentityUser<Guid>
         Email = email;
         UserName = email;
         CreatedAt = DateTime.UtcNow;
+        NormalizedEmail = email.ToUpper();
+        NormalizedUserName = email.ToUpper();
+        CreatedAt = DateTime.UtcNow;
     }
 }
