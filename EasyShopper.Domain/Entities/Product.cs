@@ -8,7 +8,7 @@ public class Product
     public string ImageUrl { get; set; } = default!;
 
     // Constructor vacío para EF
-    private Product() { }
+    public Product() { }
 
     public Product(string name, decimal price, string imageUrl)
     {
