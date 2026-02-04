@@ -9,7 +9,7 @@ namespace EasyShopper.Controllers;
 
 [ApiController]
 [Route("api/orders")]
-[Authorize]
+//[Authorize]
 public class OrdersController : ControllerBase
 {
     private readonly IMediator _mediator;
