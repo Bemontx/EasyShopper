@@ -1,4 +1,4 @@
-﻿namespace EasyShopper.Application.Common;
+﻿namespace EasyShopper.Application.Common.Result;
 
 public class Result<T>
 {

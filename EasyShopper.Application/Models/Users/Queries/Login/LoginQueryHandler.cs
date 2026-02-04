@@ -1,36 +1,41 @@
-﻿using MediatR;
-using EasyShopper.Application.Common.Interfaces;
-using Microsoft.AspNetCore.Identity;
+﻿using EasyShopper.Application.Common.Interfaces;
+using EasyShopper.Application.Common.Result;
+using EasyShopper.Application.Models.Users.DTOs;
 using EasyShopper.Domain.Entities;
+using MediatR;
+using Microsoft.AspNetCore.Identity;
 
 namespace EasyShopper.Application.Models.User.Queries.Login;
 
-public class LoginQueryHandler : IRequestHandler<LoginQuery, Guid?>
+public class LoginQueryHandler : IRequestHandler<LoginQuery, Result<LoginDto>>
 {
     private readonly IUserRepository _userRepository;
     private readonly IPasswordHasher<EasyShopper.Domain.Entities.User> _passwordHasher;
 
-    public LoginQueryHandler(IUserRepository userRepository, IPasswordHasher<EasyShopper.Domain.Entities.User> passwordHasher)
+    public async Task<Result<LoginDto>> Handle(LoginQuery request, CancellationToken cancellationToken)
     {
-        _userRepository = userRepository;
-        _passwordHasher = passwordHasher;
-    }
-
-    public async Task<Guid?> Handle(LoginQuery request, CancellationToken cancellationToken)
-    {
-        // 1. Buscamos al usuario solo por Email
         var user = await _userRepository.GetByEmailAsync(request.Email);
 
-        if (user == null) return null;
+        if (user == null)
+        {
+            return Result<LoginDto>.Failure("El usuario no existe o las credenciales son inválidas.");
+        }
 
-        // 2. Verificamos si la contraseña es correcta
         var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash!, request.Password);
 
         if (result == PasswordVerificationResult.Failed)
         {
-            return null; // Contraseña incorrecta
+            return Result<LoginDto>.Failure("Contraseña incorrecta.");
         }
 
-        return user.Id;
+        var loginDto = new LoginDto
+        {
+            Id = user.Id,
+            Email = user.Email!,
+            FullName = user.UserName ?? string.Empty,
+            Token = ""
+        };
+
+        return Result<LoginDto>.Success(loginDto);
     }
 }

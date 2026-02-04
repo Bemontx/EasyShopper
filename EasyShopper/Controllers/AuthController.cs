@@ -1,9 +1,6 @@
 ﻿using EasyShopper.Application.Models.User.Queries.GetById;
 using EasyShopper.Application.Models.User.Queries.Login;
 using EasyShopper.Application.Users.Commands;
-using EasyShopper.Application.Models.User.Queries.GetById;
-using EasyShopper.Application.Models.User.Queries.Login;
-using EasyShopper.Application.Users.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

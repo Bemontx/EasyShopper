@@ -1,4 +1,4 @@
-﻿namespace EasyShopper.Application.Users.DTOs;
+﻿namespace EasyShopper.Application.Models.Users.DTOs;
 
 public class LoginDto
 {

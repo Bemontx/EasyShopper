@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using EasyShopper.Application.Models.Users.DTOs;
-using EasyShopper.Application.Common;
+using EasyShopper.Application.Common.Result;
 
 namespace EasyShopper.Application.Models.User.Queries.Login;
 
