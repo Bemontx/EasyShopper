@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using EasyShopper.Application.Common.Interfaces;
+using EasyShopper.Application.Common.Interfaces.Authentication;
 using EasyShopper.Domain.Entities;
 using EasyShopper.Infrastructure.Persistence;
 using EasyShopper.Infrastructure.Repositories;
 using EasyShopper.Infrastructure.Services;
+using EasyShopper.Infrastructure.Authentication; 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,10 +32,15 @@ public static class InfrastructureServiceRegistration
             options.Password.RequireUppercase = false;
             options.Password.RequireLowercase = false;
         })
-        .AddEntityFrameworkStores<EasyShopperDbContext>() 
+        .AddEntityFrameworkStores<EasyShopperDbContext>()
         .AddDefaultTokenProviders();
 
-        // 3. Registro de Repositorios (Crucial para que los Handlers funcionen)
+        // Mapea la sección "JwtSettings" del appsettings.json a la clase
+        services.Configure<JwtSettings>(configuration.GetSection(JwtSettings.SectionName));
+                // Registra el generador de tokens
+        services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+
+        // 3. Registro de Repositorios
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
