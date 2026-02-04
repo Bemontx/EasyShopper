@@ -74,6 +74,19 @@ builder.Services.AddAuthentication(options =>
 });
 
 
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowIonicApp", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:8100")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
