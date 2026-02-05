@@ -22,21 +22,29 @@ public class ProductsController : ControllerBase
     {
         // Datos Mock 
         var mockProducts = new List<object>
-        {
-            new {
-                id = Guid.NewGuid(),
-                name = "Venta Mayorista Premium",
-                price = 5500000,
-                quantity = 2,
-                imageUrl = "https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
+    {
+        new {
+            Id = Guid.NewGuid(),
+            Name = "Iphone 17 Pro max",
+            Price = 500, 
+            Quantity = 1,
+            ImageUrl = "https://www.apple.com/co/iphone-17-pro/images/overview/highlights/highlights_design_endframe__flnga0hibmeu_large.jpg"
+        },
+        new {
+            Id = Guid.NewGuid(),
+            Name = "Iphone 14 Pro",
+            Price = 150,
+            Quantity = 1,
+            ImageUrl = "https://i.blogs.es/d92636/tg_image_1817144959/650_1200.jpeg"
             },
-            new {
-                id = Guid.NewGuid(),
-                name = "Insumos por Volumen",
-                price = 1500,
-                quantity = 6000, 
-                imageUrl = "https://cdn-icons-png.flaticon.com/512/2897/2897873.png"
-            }
+        new {
+            Id = Guid.NewGuid(),
+            Name = "Iphone 11 Pro",
+            Price = 150,
+            Quantity = 1,
+            ImageUrl = "https://www.apple.com/co/watch/images/meta/apple-watch__ywfuk5wnf1u2_og.png"
+            },
+
         };
 
         return Ok(mockProducts);
