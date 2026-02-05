@@ -26,7 +26,7 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Res
                 request.TotalAmount
             );
 
-            await _orderRepository.AddAsync(order);
+            //await _orderRepository.AddAsync(order);
 
             var dto = new OrderDto
             {
