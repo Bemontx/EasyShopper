@@ -21,36 +21,31 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterUserCommand command)
     {
-        var result = await _mediator.Send(command);
-
-        if (!result.IsSuccess)
-            return BadRequest(result.Error); 
-
-        return Ok(result.Value);
+        return Ok(Guid.NewGuid());
     }
 
     // POST: api/auth/login
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginQuery query)
     {
-        var result = await _mediator.Send(query);
-
-        if (!result.IsSuccess)
-            return Unauthorized(result.Error); 
-
-        return Ok(result.Value);
+        return Ok(new
+        {
+            token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.mock-data-success",
+            id = Guid.NewGuid(), 
+            email = query.Email,  
+            userName = query.Email.Split('@')[0] 
+        });
     }
 
     // GET: api/auth/{id}
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetById(Guid id)
     {
-        var query = new GetUserByIdQuery(id);
-        var result = await _mediator.Send(query);
-
-        if (!result.IsSuccess)
-            return NotFound(result.Error); 
-
-        return Ok(result.Value);
+        return Ok(new
+        {
+            id = id,
+            name = "Usuario Activo",
+            email = "sesion-iniciada@easyshopper.com"
+        });
     }
 }

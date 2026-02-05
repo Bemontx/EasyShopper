@@ -20,45 +20,31 @@ public class ProductsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var result = await _mediator.Send(new GetProductsQuery());
-
-        if (!result.IsSuccess)
-            return BadRequest(result.Error);
-
-        return Ok(result.Value);
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Create(CreateProductCommand command)
-    {
-        var result = await _mediator.Send(command);
-
-        if (!result.IsSuccess)
-            return BadRequest(result.Error);
-
-        return Ok(result.Value);
-    }
-
-    [HttpPut("{id}")]
-    public async Task<IActionResult> Update(
-    Guid id,
-    UpdateProductDto dto)
-    {
-        var command = new UpdateProductCommand
+        // Datos Mock 
+        var mockProducts = new List<object>
         {
-            Id = id,
-            Name = dto.Name,
-            Price = dto.Price,
-            ImageUrl = dto.ImageUrl
+            new {
+                id = Guid.NewGuid(),
+                name = "Venta Mayorista Premium",
+                price = 5500000,
+                quantity = 2,
+                imageUrl = "https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
+            },
+            new {
+                id = Guid.NewGuid(),
+                name = "Insumos por Volumen",
+                price = 1500,
+                quantity = 6000, 
+                imageUrl = "https://cdn-icons-png.flaticon.com/512/2897/2897873.png"
+            }
         };
 
-        var result = await _mediator.Send(command);
-
-        if (!result.IsSuccess)
-            return BadRequest(result.Error);
-
-        return Ok(result.Value);
+        return Ok(mockProducts);
     }
 
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateProductCommand command) => Ok(Guid.NewGuid());
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, UpdateProductDto dto) => Ok(true);
 }
