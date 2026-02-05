@@ -22,7 +22,7 @@ public class OrdersController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create(CreateOrderCommand command)
     {
-        var result = await _mediator.Send(command);
+        var result = await _mediator.Send(command); 
 
         if (!result.IsSuccess)
             return BadRequest(result.Error);
